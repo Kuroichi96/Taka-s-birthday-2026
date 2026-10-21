@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お誕生日のお祝いメッセージ</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%88%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="sender-body">
+  <div class="sky-decor" aria-hidden="true"></div>
+
+  <main class="card" id="card">
+    <div class="card-top" aria-hidden="true">
+      <span class="mini-balloon mini-balloon--1"></span>
+      <span class="mini-balloon mini-balloon--2"></span>
+      <span class="mini-balloon mini-balloon--3"></span>
+    </div>
+
+    <p class="eyebrow"><strong id="bday-name">…</strong>さんのお誕生日</p>
+    <h1 class="card-title">素敵なお祝いメッセージを送ろう</h1>
+
+    <form id="wish-form" novalidate>
+      <div class="avatar-picker">
+        <button type="button" id="avatar-btn" class="avatar-btn" aria-label="プロフィール画像を選択">
+          <span id="avatar-placeholder" class="avatar-placeholder">+</span>
+          <img id="avatar-preview" class="avatar-preview" alt="あなたのプロフィール画像" hidden>
+        </button>
+        <input type="file" id="avatar-input" accept="image/*" hidden>
+        <p class="avatar-hint">プロフィール画像を追加 <span class="avatar-hint-optional">（任意）</span></p>
+        <button type="button" id="avatar-clear" class="avatar-clear" hidden>画像を削除</button>
+      </div>
+
+      <label class="field-label" for="name">お名前</label>
+      <input type="text" id="name" name="name" maxlength="50"
+        placeholder="お名前を入力してください…" autocomplete="name" required>
+
+      <label class="field-label" for="message">お祝いメッセージ</label>
+      <textarea id="message" name="message" rows="4" maxlength="500"
+        placeholder="ここにお祝いの言葉を書いてください…" required></textarea>
+      <div class="char-count"><span id="char-count">0</span>/500</div>
+
+      <button type="submit" id="send-btn">送信する</button>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+    </form>
+
+    <div id="success" class="success" hidden>
+      <div class="success-heart" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="64" height="64" fill="none">
+          <path d="M16 28C6 21 2 15.5 2 10.6 2 6.8 5 4 8.6 4c2.6 0 5 1.4 7.4 4.6C18.4 5.4 20.8 4 23.4 4 27 4 30 6.8 30 10.6c0 4.9-4 10.4-14 17.4Z"
+            fill="#FF6B6B"/>
+          <path d="M16 28C6 21 2 15.5 2 10.6 2 6.8 5 4 8.6 4c2.6 0 5 1.4 7.4 4.6" stroke="#fff" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 class="success-title">送信しました！</h2>
+      <p class="success-text"><strong id="success-name">…</strong>さん、ありがとうございます。<strong id="success-bday">…</strong>さんへお祝いメッセージを届けました。</p>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

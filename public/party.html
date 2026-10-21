@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お誕生日おめでとう！</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%89%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="party-body">
+  <div id="confetti" aria-hidden="true"></div>
+
+  <header class="party-header">
+    <p class="eyebrow">今日はあなたの日</p>
+    <h1 class="party-title">お誕生日おめでとう、<span id="bday-name">…</span>さん！</h1>
+    <p class="party-extra" id="party-extra" hidden></p>
+    <p class="party-sub" id="wish-count">メッセージを集計中…</p>
+  </header>
+
+  <main id="bubble-wall" class="bubble-wall" aria-live="polite"></main>
+
+  <p class="year-mark">2026</p>
+
+  <script src="/party.js"></script>
+</body>
+</html>

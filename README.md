@@ -12,6 +12,29 @@ npm start
 
 App chạy ở `http://localhost:8080`.
 
+## Release (deploy lên internet)
+
+Code đã có trên GitHub. Kết nối repo với nền tảng host để mỗi lần push là tự deploy:
+
+### Railway (khuyên dùng — lời chúc lưu bền qua volume)
+
+1. Đăng ký https://railway.app (miễn phí) → **New Project** → **Deploy from GitHub repo** → chọn repo này.
+2. Railway tự đọc `railway.json` + `Dockerfile`, build và chạy.
+3. **Quan trọng — thêm Volume để giữ lời chúc**: trong tab **Volumes** của service, tạo volume mount vào `/app/data`. Không có volume thì lời chúc mất mỗi lần redeploy.
+4. Mở link `https://<tên-service>.up.railway.app` — link gửi lời chúc là gốc, link bubble là `/party/<partySecret>`.
+
+### Render
+
+1. Đăng ký https://render.com → **New** → **Blueprint** → chọn repo này (đọc `render.yaml`).
+2. Lưu ý: disk (giữ lời chúc) chỉ có ở gói trả phí (starter trở lên); gói free sẽ mất lời chúc khi redeploy.
+
+### VPS bất kỳ
+
+```bash
+docker build -t birthday-wishes .
+docker run -d -p 8080:8080 -v $(pwd)/data:/app/data birthday-wishes
+```
+
 ## Hai đường link
 
 | Ai dùng | Link |

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: birthday-wishes
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    disk:
+      name: wishes-data
+      mountPath: /app/data
+      sizeGB: 1

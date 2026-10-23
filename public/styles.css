@@ -516,6 +516,56 @@ textarea::placeholder { color: #C4B0BC; font-weight: 600; }
 }
 
 /* ============================================================
+   Music toggle (both pages)
+   ============================================================ */
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 990;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);
+  box-shadow: 0 10px 22px rgba(240, 78, 94, 0.38);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.2s ease;
+  animation: music-nudge 2.4s ease-in-out infinite;
+}
+.music-toggle:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 14px 28px rgba(240, 78, 94, 0.48);
+}
+.music-toggle:active { transform: scale(0.96); }
+.music-toggle .music-icon {
+  line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+.music-toggle.is-playing { animation: none; }
+.music-toggle.is-playing .music-icon { animation: music-beat 1.1s ease-in-out infinite; }
+@keyframes music-beat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.18); }
+}
+@keyframes music-nudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+#bg-music {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ============================================================
    Small screens
    ============================================================ */
 @media (max-width: 560px) {
